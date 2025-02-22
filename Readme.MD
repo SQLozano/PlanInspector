@@ -25,7 +25,33 @@ Step 3
 
 Step 4
   Analyze the output through the views on the PLANUSAGEINFO database. 
-  
+    vw_Actuals => compare Estimated to Actual rows
+    vw_Compile_TimeOut => queries who timed out during compilation
+    vw_Converted_Plans => converts query plans to xml format
+    vw_Duration => information about CPU en duration also for UDF
+    vw_Hashes => XE events doesn't store hashes in varbinary format, use this view to compare different hash formats
+    vw_Memory_PercentUsed => how much of the granted memory was used? 
+    vw_MemoryGrantFeedbackAdjusted => queries with memory grant feedback
+    vw_Missing_Index => querie plans with missing index requests
+    vw_Multiple_Plans_Per_QueryHash => queries with multiple plans
+    vw_NonParallelPlanReason => why didn't this query run multi-threaded? 
+    vw_Parallel_Skew => Compares load on the different threads of a parallel operator
+    vw_ParameterList => Shows the parameters that were used, compiled and runtime values
+    vw_PlanWarning_ColumnsWithNoStatistics => warnings about columns with no statistics
+    vw_PlanWarning_ColumnsWithStaleStatistics => warnings about stale statistics
+    vw_PlanWarning_ExchangeSpillDetails => warnings about Exchange spills
+    vw_PlanWarning_HashSpillDetails => warnings about Hash spills
+    vw_PlanWarning_MemoryGrantWarning => warnings about memory grants
+    vw_PlanWarning_NoJoinPredicate => warnings about joins without a predicate
+    vw_PlanWarning_Overview => overview of all the different warnings
+    vw_PlanWarning_PlanAffectingConvert => warnings about converts
+    vw_PlanWarning_SortSpillDetails => warnings about sort spills
+    vw_PlanWarning_SpillToTempDb => warnings about spills to tempdb
+    vw_PlanWarning_UnmatchedIndexes => warnings about Unmatched indexes 
+    vw_PlanWarning_Wait => warnings about waits
+    vw_QueryWithUdf => queries with user defined functions
+    vw_Statistics_Not_Updated_Last_7_Days => statistics that are not updated in the last 7 days
+    vw_TraceFlags => queries who used traceflags
 
 
 Contributing
