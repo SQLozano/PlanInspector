@@ -24,7 +24,6 @@ SELECT TOP (1000)
 	,[query_hash]
 	,[nt_username]
 	,[client_hostname]
-	,[task_time]
 	,[CapturedPlans_id]
 FROM 
 	[dbo].[CapturedPlans]
@@ -64,7 +63,7 @@ SELECT TOP (1000) * FROM [dbo].[Warnings]
 SELECT TOP (1000) * FROM [dbo].[MemoryGrantInfo] 
 SELECT TOP (1000) * FROM [dbo].[OptimizerHardwareDependentProperties]
 SELECT TOP (1000) * FROM [dbo].[StatisticsInfo]
-SELECT TOP (1000) * FROM [dbo].[TraceFlag] /*!!!!Empty*/
+SELECT TOP (1000) * FROM [dbo].[TraceFlag] 
 SELECT TOP (1000) * FROM [dbo].[WaitStats]
 SELECT TOP (1000) * FROM [dbo].[QueryTimeStats] WHERE UdfCpuTime is not null or UdfElapsedTime is not null
 /*[dbo].[Relop]*/
@@ -94,6 +93,8 @@ WHERE CapturedPlans_id = 1311
 SELECT TOP (1000)
 	 [RunTimeCountersPerThread_id]
 	,[Relop_id]
+	,[NodeId]
+	,[Thread]
 	,[ActualCPUms]
 	,[ActualElapsedms]
 	,[ActualEndOfScans]
@@ -107,9 +108,7 @@ SELECT TOP (1000)
 	,[Batches]
 	,[InputMemoryGrant]
 	,[IsInterleavedExecuted]
-	,[NodeId]
 	,[OutputMemoryGrant]
-	,[Thread]
 	,[UsedMemoryGrant]
 FROM 
 	[dbo].[RunTimeCountersPerThread]

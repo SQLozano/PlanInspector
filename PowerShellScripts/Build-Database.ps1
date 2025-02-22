@@ -3,7 +3,7 @@
 #==================================================================================================
 try
 {
-  $XmlLocation    = ".\Variables.xml"
+  $XmlLocation    = ".\PowerShellScripts\Variables.xml"
   [xml]$Variables = Get-Content $XmlLocation -ErrorAction Stop
   $ServerName     = $Variables.General.ServerName
   $DbName         = $Variables.General.DbName
