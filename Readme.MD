@@ -1,4 +1,4 @@
-PlanInspector 
+PlanInspector
 
 PlanInspector is a tool to analyze query plans that have been captured trough Extended events. 
 
