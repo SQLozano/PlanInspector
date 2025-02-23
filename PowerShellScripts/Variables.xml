@@ -3,7 +3,7 @@
 	<DbName>PlanUsageInfo</DbName> <!-- Output db name -->
   <TableName>[dbo].[CapturedPlans]</TableName> <!-- Name of the table where XEL files are written -->
   <DDLFile>.\SQL_Scripts\DatabaseDDL.sql</DDLFile> <!-- DDL file that will be used to create the output db -->
-	<XelFolder>.\XEL\</XelFolder>
+	<XelFolder>.\XEL\</XelFolder> <!-- Folder with the XEL files that will be parsed -->
   <XeEvents> <!-- List of events that will be imported -->
     <XeEvent Name="query_post_compilation_showplan"/> <!-- Standard profiling -->
     <XeEvent Name="query_post_execution_plan_profile"/> <!-- Lightweight profiling -->
