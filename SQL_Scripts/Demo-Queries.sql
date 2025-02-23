@@ -129,7 +129,7 @@ SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_MemoryGrantWarning]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_NoJoinPredicate]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_UnmatchedIndexes]
 SELECT TOP (1000) * FROM [dbo].[vw_ParameterList] WHERE QueryHash = '0x9219B95069442D28'
-SELECT TOP (1000) * FROM [dbo].[vw_Actuals] WHERE perc1 > 1000 or perc1 = 0 /*overestimated*/
+SELECT TOP (1000) * FROM [dbo].[vw_Actuals] WHERE perc1 > 1000 or perc1 = 0 /*overestimated*/ORDER BY CapturedPlans_id, perc1 
 SELECT TOP (1000) * FROM [dbo].[vw_Actuals] WHERE perc1 < 0.1 AND perc1 <> 0 /*underestimated*/ORDER BY CapturedPlans_id, perc1 
 SELECT TOP (1000) * FROM [dbo].[vw_Compile_TimeOut]
 SELECT TOP (1000) * FROM [dbo].[vw_Multiple_Plans_Per_QueryHash] 

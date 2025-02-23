@@ -1,6 +1,6 @@
 /*Enable actual plan first*/
 SELECT * FROM [DataTypes2017].[dbo].[Table_05] ORDER BY 1
-
+GO
 /*XML query to retrieve RelOp Elements*/	
 WITH XMLNAMESPACES (DEFAULT 'http://schemas.microsoft.com/sqlserver/2004/07/showplan')
 SELECT
@@ -33,6 +33,6 @@ FROM
 		SELECT
 			try_convert(xml,showplan_xml) AS showplan_xml
 		FROM 
-			dbo.CapturedPlans
+			PlanUsageInfo.dbo.CapturedPlans
 	) AS plans
 	CROSS APPLY showplan_xml.nodes('//RelOp') AS t(relop)
