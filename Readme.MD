@@ -65,7 +65,7 @@ Analyze the output through the views on the `PLANUSAGEINFO` database.
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+We welcome contributions! Please see [Contributing](CONTRIBUTING.md) for more information.
 
 ## License
 
