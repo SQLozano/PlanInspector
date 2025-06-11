@@ -393,7 +393,7 @@ AS
   SELECT  
     p.[CapturedPlans_id]
 		,cp.[database_name]
-    ,STRING_AGG(p.[Column] + ' ' + p.ParameterDataType  + ' ' + p.ParameterCompiledValue + ' ' + p.ParameterRuntimeValue,', ')WITHIN GROUP (order by [column]) AS [param_name_type_runtime_compiled]
+    ,STRING_AGG(p.[Column] + ' ' + p.ParameterDataType  + ' ' + p.ParameterCompiledValue + ' ' + p.ParameterRuntimeValue,', ')WITHIN GROUP (order by [column]) AS [name_type_compiled_runtime]
     ,qts.[cputime]
     ,qts.[ElapsedTime]
     ,qts.[UdfCpuTime]
