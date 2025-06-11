@@ -87,7 +87,7 @@ function Write-QueryPlan ($Element,$CapturedPlans_id)
 function Write-StatisticsInfo ($Element,$CapturedPlans_id)
 {
   [void]$DtStatisticsInfo.Rows.Add($null, $CapturedPlans_id,$Element.Database, $Element.Schema, $Element.Table,$Element.Statistics,
-                                   $Element.ModificationCount, $Element.SamplingPercent, $Element.LastUpdate)
+                                   $Element.ModificationCount, [System.Decimal]$Element.SamplingPercent, $Element.LastUpdate)
 }  
 #==================================================================================================
 #Function: Write query plan information to $DtMemoryGrantInfo
@@ -129,9 +129,9 @@ function Write-WaitStats ($Elements,$CapturedPlans_id)
 #==================================================================================================
 function Write-StmtSimple ($Element, $CapturedPlans_id)
 {
-  [void]$DtStmtSimple.Rows.Add($null, $CapturedPlans_id,$Element.StatementCompId,$Element.StatementEstRows,$Element.StatementId,$Element.QueryCompilationReplay,
+  [void]$DtStmtSimple.Rows.Add($null, $CapturedPlans_id,$Element.StatementCompId,[double]$Element.StatementEstRows,$Element.StatementId,$Element.QueryCompilationReplay,
                               $Element.StatementOptmLevel, $Element.StatementOptmEarlyAbortReason, $Element.CardinalityEstimationModelVersion,
-                              $Element.StatementSubTreeCost, $Element.StatementText, $Element.StatementType,$Element.TemplatePlanGuideDB,
+                              [double]$Element.StatementSubTreeCost, $Element.StatementText, $Element.StatementType,$Element.TemplatePlanGuideDB,
                               $Element.TemplatePlanGuideName, $Element.PlanGuideDB, $Element.PlanGuideName, $Element.ParameterizedText,
                               $Element.ParameterizedPlanHandle, $Element.QueryHash, $Element.QueryPlanHash, $Element.RetrievedFromCache,
                               $Element.StatementSqlHandle, $Element.DatabaseContextSettingsId, $Element.ParentObjectId,$Element.BatchSqlHandle,
@@ -191,16 +191,16 @@ function Write-Relop ($Element,$CapturedPlans_id, $Relop_id)
 {
   try 
   {
-    [void]$DtIntermidiateRelop.Rows.Add( $Relop_id,$CapturedPlans_id, $Element.AvgRowSize,
-    $Element.EstimateCPU,
-    $Element.EstimateIO,
-    $Element.EstimateRebinds,
-    $Element.EstimateRewinds,
+    [void]$DtIntermidiateRelop.Rows.Add($Relop_id,$CapturedPlans_id, [double]$Element.AvgRowSize,
+    [double]$Element.EstimateCPU,
+    [double]$Element.EstimateIO,
+    [double]$Element.EstimateRebinds,
+    [double]$Element.EstimateRewinds,
     $Element.EstimatedExecutionMode,
     [System.Boolean]$Element.GroupExecuted,
-    $Element.EstimateRows,
-    $Element.EstimateRowsWithoutRowGoal,
-    $Element.EstimatedRowsRead,
+    [double]$Element.EstimateRows,
+    [double]$Element.EstimateRowsWithoutRowGoal,
+    [double]$Element.EstimatedRowsRead,
     $Element.LogicalOp,
     $Element.NodeId,
     [System.Boolean]$Element.Parallel,
@@ -208,9 +208,9 @@ function Write-Relop ($Element,$CapturedPlans_id, $Relop_id)
     [System.Boolean]$Element.Partitioned,
     $Element.PhysicalOp,
     [System.Boolean]$Element.IsAdaptive,
-    $Element.AdaptiveThresholdRows,
-    $Element.EstimatedTotalSubtreeCost,
-    $Element.TableCardinality,
+    [double]$Element.AdaptiveThresholdRows,
+    [double]$Element.EstimatedTotalSubtreeCost,
+    [double]$Element.TableCardinality,
     $Element.StatsCollectionId,
     $Element.EstimatedJoinType,
     $Element.HyperScaleOptimizedQueryProcessing,
