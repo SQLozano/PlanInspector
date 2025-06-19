@@ -170,8 +170,8 @@ CREATE TABLE [dbo].[MemoryGrantInfo]
 (
   [MemoryGrantInfo_id] [int] IDENTITY(1,1) NOT NULL,
   [CapturedPlans_id] [int] NOT NULL,
-  [SerialRequiredMemory] [bigint] NULL,
-  [SerialDesiredMemory] [bigint] NULL,
+  [SerialRequiredMemory] [bigint] NOT NULL,
+  [SerialDesiredMemory] [bigint] NOT NULL,
   [RequiredMemory] [bigint] NULL,
   [DesiredMemory] [bigint] NULL,
   [RequestedMemory] [bigint] NULL,

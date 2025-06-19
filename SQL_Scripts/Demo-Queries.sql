@@ -60,7 +60,7 @@ WHERE [NonParallelPlanReason] IS NOT NULL
 
 SELECT TOP (1000) * FROM [dbo].[MissingIndex]
 SELECT TOP (1000) * FROM [dbo].[Warnings]
-SELECT TOP (1000) * FROM [dbo].[MemoryGrantInfo] 
+SELECT TOP (1000) * FROM [dbo].[MemoryGrantInfo] WHERE [GrantWaitTime] > 0
 SELECT TOP (1000) * FROM [dbo].[OptimizerHardwareDependentProperties]
 SELECT TOP (1000) * FROM [dbo].[StatisticsInfo]
 SELECT TOP (1000) * FROM [dbo].[TraceFlag] 
@@ -123,7 +123,7 @@ SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_ColumnsWithNoStatistics]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_SpillToTempDb]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_SortSpillDetails] 
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_HashSpillDetails]
-SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_Wait]
+SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_Wait] /*Memory Grant Waittype is the only wait type in the plan <> WaitStats*/
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_PlanAffectingConvert]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_MemoryGrantWarning]
 SELECT TOP (1000) * FROM [dbo].[vw_PlanWarning_NoJoinPredicate]
@@ -139,6 +139,6 @@ SELECT TOP (1000) * FROM [dbo].[vw_Memory_PercentUsed] ORDER BY PercentageUsed
 SELECT TOP (1000) * FROM [dbo].[vw_MemoryGrantFeedbackAdjusted]
 SELECT TOP (1000) * FROM [dbo].[vw_Missing_Index]
 SELECT TOP (1000) * FROM [dbo].[vw_NonParallelPlanReason] WHERE [NonParallelPlanReason] = 'TSQLUserDefinedFunctionsNotParallelizable'
-SELECT TOP (1000) * FROM [dbo].[vw_Parallel_Skew] WHERE [CapturedPlans_id] = 1372 AND [NodeId] = 1 ORDER BY Thread
+SELECT TOP (1000) * FROM [dbo].[vw_Parallel_Skew] WHERE [CapturedPlans_id] = 1311 AND [NodeId] = 1 ORDER BY Thread
 SELECT TOP (1000) * FROM [dbo].[vw_Statistics_Not_Updated_Last_7_Days]
 SELECT TOP (1000) * FROM [dbo].[vw_TraceFlags]
