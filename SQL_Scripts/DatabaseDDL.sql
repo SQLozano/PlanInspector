@@ -421,6 +421,62 @@ AS
     ,cp.[showplan_xml]
 		,cp.[sql_text];
 GO
+/*Create view [dbo].[vw_ParameterListCompiled]*/
+CREATE VIEW [dbo].[vw_ParameterListCompiled]
+AS
+  SELECT  
+    p.CapturedPlans_id 
+    ,cp.timestamp
+    ,STRING_AGG(p.[Column] + ' ' + p.ParameterDataType  + ' ' + p.ParameterCompiledValue ,', ')WITHIN GROUP (order by [column]) AS [parameter_info]
+    ,qts.cputime
+    ,qts.ElapsedTime
+    ,ss.QueryHash
+    ,ss.QueryPlanHash
+    ,TRY_CONVERT (XML,cp.showplan_xml) AS [showplan_xml]
+  FROM 
+    dbo.[ParameterList] p INNER JOIN 
+    [dbo].[QueryTimeStats] qts ON qts.CapturedPlans_id = p.CapturedPlans_id INNER JOIN 
+    [dbo].[StmtSimple] ss ON ss.CapturedPlans_id = p.CapturedPlans_id INNER JOIN 
+    [dbo].[CapturedPlans] cp ON p.CapturedPlans_id = cp.CapturedPlans_id 
+  WHERE 
+    p.ParameterCompiledValue IS NOT NULL
+  GROUP BY 
+    p.CapturedPlans_id
+    ,qts.cputime
+    ,qts.ElapsedTime
+    ,ss.QueryHash
+    ,ss.QueryPlanHash
+    ,cp.[showplan_xml]
+    ,cp.timestamp
+GO
+/*Create view [dbo].[vw_ParameterListRuntime]*/
+CREATE VIEW [dbo].[vw_ParameterListRuntime]
+AS
+  SELECT  
+    p.CapturedPlans_id 
+    ,cp.timestamp
+    ,STRING_AGG(p.[Column] + ' ' + p.ParameterDataType  + ' ' + p.ParameterRuntimeValue,', ')WITHIN GROUP (order by [column]) AS [parameter_info]
+    ,qts.cputime
+    ,qts.ElapsedTime
+    ,ss.QueryHash
+    ,ss.QueryPlanHash
+    ,TRY_CONVERT (XML,cp.showplan_xml) AS [showplan_xml]
+  FROM 
+    dbo.[ParameterList] p INNER JOIN 
+    [dbo].[QueryTimeStats] qts ON qts.CapturedPlans_id = p.CapturedPlans_id INNER JOIN 
+    [dbo].[StmtSimple] ss ON ss.CapturedPlans_id = p.CapturedPlans_id INNER JOIN 
+    [dbo].[CapturedPlans] cp ON p.CapturedPlans_id = cp.CapturedPlans_id 
+  WHERE 
+    p.ParameterCompiledValue IS NOT NULL
+  GROUP BY 
+    p.CapturedPlans_id
+    ,qts.cputime
+    ,qts.ElapsedTime
+    ,ss.QueryHash
+    ,ss.QueryPlanHash
+    ,cp.[showplan_xml]
+    ,cp.timestamp
+GO
 /*Create view [dbo].[vw_Multiple_Plans_Per_QueryHash]*/
 CREATE VIEW [dbo].[vw_Multiple_Plans_Per_QueryHash]
 AS
