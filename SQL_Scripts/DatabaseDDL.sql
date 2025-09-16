@@ -913,7 +913,7 @@ SELECT
                     ELSE SUM([ActualRows])
                 END
             FROM 
-                [PlanUsageInfo].[dbo].[RunTimeCountersPerThread] RTC2
+                [dbo].[RunTimeCountersPerThread] RTC2
             WHERE 
                 RTC2.relop_id = RTC.Relop_id
             GROUP BY  
