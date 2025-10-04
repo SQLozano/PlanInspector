@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[StmtSimple] ADD CONSTRAINT [PK_StmtSimple] PRIMARY KEY CLUSTERED ([StmtSimple_id])
+ALTER TABLE [{@Schema}].[StmtSimple] ADD CONSTRAINT [FK_StmtSimple_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

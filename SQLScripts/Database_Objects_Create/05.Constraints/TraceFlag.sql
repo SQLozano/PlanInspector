@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[TraceFlag] ADD CONSTRAINT [PK_TraceFlag] PRIMARY KEY CLUSTERED ([TraceFlag_id])
+ALTER TABLE [{@Schema}].[TraceFlag] ADD CONSTRAINT [FK_TraceFlag_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

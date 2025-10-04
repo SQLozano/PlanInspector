@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[ColumnReference] ADD CONSTRAINT [PK_ColumnReference] PRIMARY KEY CLUSTERED ([ColumnReference_ID])
+ALTER TABLE [{@Schema}].[ColumnReference] ADD CONSTRAINT [FK_ColumnReference_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

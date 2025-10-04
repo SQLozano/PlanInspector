@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[Warning] ADD CONSTRAINT [PK_Warning] PRIMARY KEY CLUSTERED ([Warning_id])
+ALTER TABLE [{@Schema}].[Warning] ADD CONSTRAINT [FK_Warning_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

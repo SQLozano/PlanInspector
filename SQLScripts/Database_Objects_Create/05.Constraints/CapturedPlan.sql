@@ -1,0 +1,1 @@
+ALTER TABLE [{@Schema}].[CapturedPlan] ADD CONSTRAINT [PK_CapturedPlan] PRIMARY KEY CLUSTERED ([CapturedPlan_id])

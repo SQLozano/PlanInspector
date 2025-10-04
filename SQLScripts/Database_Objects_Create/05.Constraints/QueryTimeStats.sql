@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[QueryTimeStats] ADD CONSTRAINT [PK_QueryTimeStats] PRIMARY KEY CLUSTERED ([QueryTimeStats_id])
+ALTER TABLE [{@Schema}].[QueryTimeStats] ADD CONSTRAINT [FK_QueryTimeStats_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

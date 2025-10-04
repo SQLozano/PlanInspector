@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[Relop] ADD CONSTRAINT [PK_Relop] PRIMARY KEY CLUSTERED ([Relop_id])
+ALTER TABLE [{@Schema}].[Relop] ADD CONSTRAINT [FK_Relop_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

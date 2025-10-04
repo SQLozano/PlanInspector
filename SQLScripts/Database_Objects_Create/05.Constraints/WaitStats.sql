@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[WaitStats] ADD CONSTRAINT [PK_WaitStat] PRIMARY KEY CLUSTERED ([WaitStat_id])
+ALTER TABLE [{@Schema}].[WaitStats] ADD CONSTRAINT [FK_WaitStat_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

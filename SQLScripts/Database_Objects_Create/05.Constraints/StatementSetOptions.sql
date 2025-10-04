@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[StatementSetOptions] ADD CONSTRAINT [PK_StatementSetOptions] PRIMARY KEY CLUSTERED ([StatementSetOptions_id])
+ALTER TABLE [{@Schema}].[StatementSetOptions] ADD CONSTRAINT [FK_StatementSetOptions_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

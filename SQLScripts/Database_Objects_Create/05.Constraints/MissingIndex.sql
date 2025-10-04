@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[MissingIndex] ADD CONSTRAINT [PK_MissingIndex] PRIMARY KEY CLUSTERED ([CapturedPlan_id])
+ALTER TABLE [{@Schema}].[MissingIndex] ADD CONSTRAINT [FK_MissingIndex_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

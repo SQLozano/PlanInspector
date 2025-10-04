@@ -1,0 +1,63 @@
+#==================================================================================================
+#Function: Write query plan information to $DtQueryPlan
+#==================================================================================================
+function Write-RuntimeInformation ([System.Data.DataTable]$DtRunTimeCountersPerThread,$XMLElement,$CapturedPlan_id,$Relop_id)
+{
+  $CountPerThreads = $XMLElement.RunTimeInformation.RunTimeCountersPerThread
+  foreach ($Cpt in $CountPerThreads)
+  {   
+    [void]$DtRunTimeCountersPerThread.Rows.Add($CapturedPlan_id
+      ,$Relop_id
+      ,$Cpt.Thread
+      ,$Cpt.ActualCPUms
+      ,$Cpt.ActualElapsedms
+      ,$Cpt.ActualEndOfScans
+      ,$Cpt.ActualExecutionMode
+      ,$Cpt.ActualExecutions
+      ,$Cpt.ActualJoinType
+      ,$Cpt.ActualLobLogicalReads
+      ,$Cpt.ActualLobPageServerReadAheads
+      ,$Cpt.ActualLobPageServerReads
+      ,$Cpt.ActualLobPhysicalReads
+      ,$Cpt.ActualLobReadAheads
+      ,$Cpt.ActualLocallyAggregatedRows
+      ,$ActualLogicalReads
+      ,$Cpt.ActualPageServerPushedPageIDs
+      ,$Cpt.ActualPageServerPushedReads
+      ,$Cpt.ActualPageServerReadAheads
+      ,$Cpt.ActualPageServerReads
+      ,$Cpt.ActualPageServerRowsRead
+      ,$Cpt.ActualPageServerRowsReturned
+      ,$Cpt.ActualPhysicalReads
+      ,$Cpt.ActualReadAheads
+      ,$Cpt.ActualRebinds
+      ,$Cpt.ActualRewinds
+      ,$Cpt.ActualRows
+      ,$Cpt.ActualRowsRead
+      ,$Cpt.ActualScans
+      ,$Cpt.Batches
+      ,$Cpt.BrickId
+      ,$Cpt.CloseTime
+      ,$Cpt.FirstActiveTime
+      ,$Cpt.FirstRowTime
+      ,$Cpt.HpcDeviceToHostBytes
+      ,$Cpt.HpcHostToDeviceBytes
+      ,$Cpt.HpcKernelElapsedUs
+      ,$Cpt.HpcRowCount
+      ,$Cpt.InputMemoryGrant
+      ,[System.Boolean]$Cpt.IsInterleavedExecuted
+      ,$Cpt.LastActiveTime
+      ,$Cpt.LastRowTime
+      ,$XMLElement.NodeId
+      ,$Cpt.OpenTime
+      ,$Cpt.OutputMemoryGrant
+      ,$Cpt.RowRequalifications
+      ,$Cpt.SchedulerId
+      ,$Cpt.SegmentReads
+      ,$Cpt.SegmentSkips
+      ,$Cpt.TaskAddr
+      ,$Cpt.Thread
+      ,$Cpt.UsedMemoryGrant
+    )
+  }
+} 

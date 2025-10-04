@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[OptimizerHardwareDependentProperties] ADD CONSTRAINT [PK_OptimizerHardwareDependentProperties] PRIMARY KEY CLUSTERED ([OptimizerHardwareDependentProperties_id])
+ALTER TABLE [{@Schema}].[OptimizerHardwareDependentProperties] ADD CONSTRAINT [FK_OptimizerHardwareDependentProperties_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

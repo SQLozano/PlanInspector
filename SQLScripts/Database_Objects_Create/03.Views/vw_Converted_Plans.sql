@@ -1,0 +1,23 @@
+CREATE VIEW [{@Schema}].[vw_Converted_Plan]
+AS 
+SELECT 
+	 [CapturedPlan_id]
+	,[name]
+	,TRY_CONVERT(xml,DECOMPRESS([showplan_xml_compressed])) AS [showplan_xml] 
+	,[cpu_time]
+	,[duration]
+	,[estimated_rows]
+	,[estimated_cost]
+	,[serial_ideal_memory_kb]
+	,[requested_memory_kb]
+	,[used_memory_kb]
+	,[ideal_memory_kb]
+	,[granted_memory_kb]
+	,[dop]
+	,[object_name]
+	,[database_name]
+	,[sql_text]
+  ,[query_hash]
+  ,[query_plan_hash]
+FROM 
+	[{@Schema}].[CapturedPlan]

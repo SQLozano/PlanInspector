@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[ParameterList] ADD CONSTRAINT [PK_ParameterList] PRIMARY KEY CLUSTERED ([ParameterList_id])
+ALTER TABLE [{@Schema}].[ParameterList] ADD CONSTRAINT [FK_ParameterList_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

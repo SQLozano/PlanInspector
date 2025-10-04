@@ -1,0 +1,2 @@
+ALTER TABLE [{@Schema}].[StatisticsInfo] ADD CONSTRAINT [PK_StatisticsInfo] PRIMARY KEY CLUSTERED ([StatisticsInfo_id])
+ALTER TABLE [{@Schema}].[StatisticsInfo] ADD CONSTRAINT [FK_StatisticsInfo_CapturedPlan_id] FOREIGN KEY ([CapturedPlan_id]) REFERENCES [{@Schema}].[CapturedPlan]([CapturedPlan_id])

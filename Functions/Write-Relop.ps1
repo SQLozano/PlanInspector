@@ -1,0 +1,43 @@
+#==================================================================================================
+#Function: Write query plan information to $DtQueryPlan
+#==================================================================================================
+function Write-Relop ([System.Data.DataTable]$DtRelop,$XMLElement,$CapturedPlan_id, $Relop_id)
+{
+  try 
+  {
+    [void]$DtIntermidiateRelop.Rows.Add($Relop_id
+    ,$CapturedPlan_id
+    ,[double]$XMLElement.AvgRowSize
+    ,[double]$XMLElement.EstimateCPU
+    ,[double]$XMLElement.EstimateIO
+    ,[double]$XMLElement.EstimateRebinds
+    ,[double]$XMLElement.EstimateRewinds
+    ,$XMLElement.EstimatedExecutionMode
+    ,[System.Boolean]$XMLElement.GroupExecuted
+    ,[double]$XMLElement.EstimateRows
+    ,[double]$XMLElement.EstimateRowsWithoutRowGoal
+    ,[double]$XMLElement.EstimatedRowsRead
+    ,$XMLElement.LogicalOp
+    ,$XMLElement.NodeId
+    ,[System.Boolean]$XMLElement.Parallel
+    ,[System.Boolean]$XMLElement.RemoteDataAccess
+    ,[System.Boolean]$XMLElement.Partitioned
+    ,$XMLElement.PhysicalOp
+    ,[System.Boolean]$XMLElement.IsAdaptive
+    ,[double]$XMLElement.AdaptiveThresholdRows
+    ,[double]$XMLElement.EstimatedTotalSubtreeCost
+    ,[double]$XMLElement.TableCardinality
+    ,$XMLElement.StatsCollectionId
+    ,$XMLElement.EstimatedJoinType
+    ,$XMLElement.HyperScaleOptimizedQueryProcessing
+    ,$XMLElement.HyperScaleOptimizedQueryProcessingUnusedReason
+    ,$null
+    ,$null
+    )
+  }
+  catch 
+  {
+    Write-Output ($Error[0] | Format-List -force)
+    throw
+  }
+} 
